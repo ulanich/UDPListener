@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>2500</width>
+    <width>2900</width>
     <height>1500</height>
    </rect>
   </property>
@@ -19,7 +19,7 @@
      <rect>
       <x>40</x>
       <y>40</y>
-      <width>1961</width>
+      <width>2331</width>
       <height>1361</height>
      </rect>
     </property>
@@ -42,7 +42,7 @@
    <widget class="QCheckBox" name="checkBox">
     <property name="geometry">
      <rect>
-      <x>2010</x>
+      <x>2390</x>
       <y>1370</y>
       <width>321</width>
       <height>31</height>
@@ -64,8 +64,8 @@
    <widget class="QGroupBox" name="groupBox">
     <property name="geometry">
      <rect>
-      <x>2070</x>
-      <y>40</y>
+      <x>2450</x>
+      <y>50</y>
       <width>371</width>
       <height>341</height>
      </rect>
@@ -140,7 +140,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>2500</width>
+     <width>2900</width>
      <height>22</height>
     </rect>
    </property>

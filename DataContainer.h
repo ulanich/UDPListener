@@ -7,25 +7,26 @@ class Output
 {
 public:
     Output(int in_id = 0, QString& in_tlm = QString(),
-        QString& in_type = QString(), QString& in_len = QString(),
-        QString& in_crc = QString()) :
-        m_idPackage(in_id), m_info(in_tlm), m_type(in_type),
-        m_packLen(in_len), m_crc(in_crc)
-    {
-    }
+        QString& in_type = QString(), int in_len = 0,
+        QString& in_crc = QString(), int in_packVer = 0,
+        int in_appIdent = 0);
 
     QString    getByte() const;
     int        getId() const;
     QString    getType() const;
     QString    getLen() const;
     QString    getCrc() const;
+    QString    getPackVer() const;
+    QString    getAppIdent() const;
 
 private:
     QString    m_info;
     int        m_idPackage;
     QString    m_type;
-    QString    m_packLen;
+    int        m_packLen;
     QString    m_crc;
+    int        m_packVer;
+    int        m_appIdent;
 };
 
 class TLMPacket

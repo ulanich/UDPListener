@@ -16,7 +16,7 @@ int QTableViewModel::rowCount(const QModelIndex&) const
 
 int QTableViewModel::columnCount(const QModelIndex&) const
 {
-    return 5;
+    return 7;
 }
 
 void QTableViewModel::disableDataFlag()
@@ -39,6 +39,10 @@ QVariant QTableViewModel::headerData(int section, Qt::Orientation orientation, i
             return QString("TYPE");
         case 4:
             return QString("CRC");
+        case 5:
+            return QString("PACKET VERSION");
+        case 6:
+            return QString("APP IDENTIFIER");
         }
     }
     return QVariant();
@@ -79,6 +83,16 @@ QVariant QTableViewModel::data(const QModelIndex& index, int role) const
                     value = m_values->at(index.row()).getCrc();
                     break;
                 }
+                case 5:
+                {
+                    value = m_values->at(index.row()).getPackVer();
+                    break;
+                }
+                case 6:
+                {
+                    value = m_values->at(index.row()).getAppIdent();
+                    break;
+                }
             }
             break;
         }
@@ -96,6 +110,10 @@ QVariant QTableViewModel::data(const QModelIndex& index, int role) const
                 case 3:
                     return Qt::AlignCenter;
                 case 4:
+                    return Qt::AlignCenter;
+                case 5:
+                    return Qt::AlignCenter;
+                case 6:
                     return Qt::AlignCenter;
             }
             break;
@@ -124,7 +142,9 @@ void QTableViewModel::addPack(TLMPacket& value)
         it++;
     }
     value.m_outputData = Output(value.m_header->packetCounter,
-        myString, QString("Packet Data"), QString().number(value.m_header->packetDataLen,10), value.m_crc);
+        myString, QString("Packet Data"), value.m_header->packetDataLen, 
+        value.m_crc, value.m_header->packetVersion, value.m_header->appProcessInd);
+
     append(value.m_outputData);
 
     for (auto& mem : value.m_obts)

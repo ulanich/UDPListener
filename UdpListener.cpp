@@ -13,7 +13,12 @@ UdpListener::UdpListener(QWidget *parent) : QMainWindow(parent)
     m_ui.tableView->horizontalHeader()->setSectionResizeMode(0, QHeaderView::ResizeToContents);
     m_ui.tableView->horizontalHeader()->setSectionResizeMode(1, QHeaderView::ResizeToContents);
     m_ui.tableView->horizontalHeader()->setSectionResizeMode(2, QHeaderView::Stretch);
+    m_ui.tableView->horizontalHeader()->setSectionResizeMode(3, QHeaderView::ResizeToContents);
+    m_ui.tableView->horizontalHeader()->setSectionResizeMode(4, QHeaderView::ResizeToContents);    
+    m_ui.tableView->horizontalHeader()->setSectionResizeMode(5, QHeaderView::ResizeToContents);
+    m_ui.tableView->horizontalHeader()->setSectionResizeMode(6, QHeaderView::ResizeToContents);
     m_ui.tableView->setStyleSheet("QHeaderView::section { background-color:gray }");
+
     m_ui.pushStop->setEnabled(false);
 
     connect(m_ui.pushStop, SIGNAL(clicked()), this, SLOT(closesocket()));
