@@ -4,7 +4,7 @@
 #include <vector>
 #include "DataContainer.h"
 
-#define MAX_LIST_SIZE (1000)
+#define MAX_LIST_SIZE (10000)
 
 class QTableViewModel : public QAbstractListModel
 {

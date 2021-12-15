@@ -127,6 +127,7 @@ QVariant QTableViewModel::data(const QModelIndex& index, int role) const
 
 void QTableViewModel::append(Output& value)
 {
+    if (m_values->size() >= MAX_LIST_SIZE) deleteRow(0);
     beginInsertRows(QModelIndex(), m_values->count(), m_values->count());
     m_values->append(value);
     endInsertRows();
@@ -134,31 +135,32 @@ void QTableViewModel::append(Output& value)
 
 void QTableViewModel::addPack(TLMPacket& value)
 {
-    QString myString;
+    QString usefuldata;
     std::vector<uint8_t>::iterator it = value.m_data.begin() + (SYNCHRO_MARKER_SIZE + HEADER_SIZE);
-    while (it != value.m_data.end() - CRC_SIZE)
+
+    for (int i = SYNCHRO_MARKER_SIZE + HEADER_SIZE; i < value.m_data.size() - CRC_SIZE; i++)
     {
-        myString.append(QString().number(*it, 16));
-        it++;
+        if (i == 47) 
+            usefuldata.append("\n");
+        usefuldata.append(QStringLiteral("%1").arg(value.m_data.at(i), 2, 16, QLatin1Char('0')));
     }
+
     value.m_outputData = Output(value.m_header->packetCounter,
-        myString, QString("Packet Data"), value.m_header->packetDataLen, 
+        usefuldata, QString("Packet Data"), value.m_header->packetDataLen,
         value.m_crc, value.m_header->packetVersion, value.m_header->appProcessInd);
 
     append(value.m_outputData);
 
     for (auto& mem : value.m_obts)
     {
-        if (m_values->size() >= MAX_LIST_SIZE) deleteRow(0);
         tsOBTS* ptr = &mem;
         value.m_outputData = Output(value.m_header->packetCounter,
-            QString("Date: %1:%2:20%3  Time: %4:%5:%6").arg(ptr->day).arg(ptr->month).arg(ptr->year).arg(ptr->hour).arg(ptr->minute).arg(ptr->seconds),
-            QString("Date Time\ndd:mm:yy hh:mm:ss"));
+            QString("Date: %1:%2:%3  Time: %4:%5:%6").arg(ptr->day).arg(ptr->month).arg(ptr->year+2000).arg(ptr->hour).arg(ptr->minute).arg(ptr->seconds),
+            QString("Date Time\n DD:MM:YYYY HH:MM:SS "));
         append(value.m_outputData);
     }
     for (auto& mem : value.m_textMessage)
     {
-        if (m_values->size() >= MAX_LIST_SIZE) deleteRow(0);
         tsTextMessage* ptr = &mem;
         value.m_outputData = Output(value.m_header->packetCounter,
             QString("Arg = %1; Sin(Arg) = %2; Cos(Arg) = %3").arg(ptr->arg).arg(ptr->sinArg).arg(ptr->doubleArg),
