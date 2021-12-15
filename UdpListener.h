@@ -22,6 +22,6 @@ private:
 
 private slots:
     void readPendingDiagrams();
-    void closesocket();
-    void startsocket();
+    void closeSocket();
+    void startSocket();
 };

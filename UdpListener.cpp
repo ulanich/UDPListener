@@ -31,7 +31,7 @@ UdpListener::~UdpListener()
     socket->close();
 }
 
-void UdpListener::startsocket()
+void UdpListener::startSocket()
 {
     m_ui.pushStart->setEnabled(false);
     m_ui.pushStop->setEnabled(true);
@@ -45,7 +45,7 @@ void UdpListener::startsocket()
     connect(socket, SIGNAL(readyRead()), SLOT(readPendingDiagrams()));
 }
 
-void UdpListener::closesocket()
+void UdpListener::closeSocket()
 {
     m_ui.pushStop->setEnabled(false);
     m_ui.pushStart->setEnabled(true);

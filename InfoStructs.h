@@ -14,7 +14,7 @@ enum
 	TM_SYNCHRO = 0x3e9c,
 };
 
-//#define UNCORRECTED_VER
+#define UNCORRECTED_VER
 #ifdef UNCORRECTED_VER
 typedef struct
 {
