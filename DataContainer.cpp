@@ -23,9 +23,9 @@ void TLMPacket::makeUsefulData()
     m_header = (tsHeader*)pPackage->header;
 
     if (crc_calc(pPackage->data, m_header->packetDataLen) == pPackage->crc)
-        m_crc = QString("CRC OK: %1").arg(QString().number(pPackage->crc, 16).prepend("0x"));
+        m_crc = QString("CRC OK:\n%1").arg(QString().number(pPackage->crc, 16).prepend("0x"));
     else
-        m_crc = QString("BAD CRC: %1").arg(QString().number(pPackage->crc, 16).prepend("0x"));
+        m_crc = QString("BAD CRC:\n%1").arg(QString().number(pPackage->crc, 16).prepend("0x"));
 
     if (m_data.size() - (SYNCHRO_MARKER_SIZE + HEADER_SIZE + CRC_SIZE) == m_header->packetDataLen)
     {
@@ -33,18 +33,18 @@ void TLMPacket::makeUsefulData()
         while (it != m_data.end() - CRC_SIZE)
         {
             uint16_t* type = (uint16_t*)&*it;
-            it += 2;
+            it += IDENTIFIER_SIZE;
             if (*type == TM_OBTS)
             {
-                tsOBTS* buf = (tsOBTS*)&*it;
-                m_obts.push_back(*buf);
-                it += 4;
+                tsOBTS* pObts = (tsOBTS*)&*it;
+                m_obts.push_back(*pObts);
+                it += OBTS_SIZE;
             }
             else if (*type == TM_TEXT)
             {
-                tsTextMessage* buf1 = (tsTextMessage*)&*it;
-                m_textMessage.push_back(*buf1);
-                it += 16;
+                tsTextMessage* pMes = (tsTextMessage*)&*it;
+                m_textMessage.push_back(*pMes);
+                it += TEXT_MESSAGE_SIZE;
             }
         }
     }

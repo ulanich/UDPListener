@@ -153,7 +153,7 @@ void QTableViewModel::addPack(TLMPacket& value)
         tsOBTS* ptr = &mem;
         value.m_outputData = Output(value.m_header->packetCounter,
             QString("Date: %1:%2:20%3  Time: %4:%5:%6").arg(ptr->day).arg(ptr->month).arg(ptr->year).arg(ptr->hour).arg(ptr->minute).arg(ptr->seconds),
-            QString("Date Time"));
+            QString("Date Time\ndd:mm:yy hh:mm:ss"));
         append(value.m_outputData);
     }
     for (auto& mem : value.m_textMessage)

@@ -7,8 +7,8 @@
 message("You are running qmake on a generated .pro file. This may not work!")
 
 
-HEADERS += ./tlmqt.h
-SOURCES += ./tlmqt.cpp \
+HEADERS += ./UdpListener.h
+SOURCES += ./UdpListener.cpp \
     ./main.cpp
 FORMS += ./tlmqt.ui
 RESOURCES += tlmqt.qrc

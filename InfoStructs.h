@@ -2,9 +2,11 @@
 #include "stdint.h"
 
 #define SYNCHRO_MARKER_SIZE (2)
-#define HEADER_SIZE (6)
-#define CRC_SIZE (2)
-
+#define HEADER_SIZE			(6)
+#define CRC_SIZE			(2)
+#define IDENTIFIER_SIZE		(2)
+#define OBTS_SIZE			(4)
+#define	TEXT_MESSAGE_SIZE	(4)
 enum
 {
 	TM_OBTS = 0x0123,
@@ -12,6 +14,7 @@ enum
 	TM_SYNCHRO = 0x3e9c,
 };
 
+//#define UNCORRECTED_VER
 #ifdef UNCORRECTED_VER
 typedef struct
 {

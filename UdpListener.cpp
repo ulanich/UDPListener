@@ -17,6 +17,7 @@ UdpListener::UdpListener(QWidget *parent) : QMainWindow(parent)
     m_ui.tableView->horizontalHeader()->setSectionResizeMode(4, QHeaderView::ResizeToContents);    
     m_ui.tableView->horizontalHeader()->setSectionResizeMode(5, QHeaderView::ResizeToContents);
     m_ui.tableView->horizontalHeader()->setSectionResizeMode(6, QHeaderView::ResizeToContents);
+    m_ui.tableView->verticalHeader()->setSectionResizeMode(QHeaderView::ResizeToContents);
     m_ui.tableView->setStyleSheet("QHeaderView::section { background-color:gray }");
 
     m_ui.pushStop->setEnabled(false);
