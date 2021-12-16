@@ -22,8 +22,8 @@ UdpListener::UdpListener(QWidget *parent) : QMainWindow(parent)
 
     m_ui.pushStop->setEnabled(false);
 
-    connect(m_ui.pushStop, SIGNAL(clicked()), this, SLOT(closesocket()));
-    connect(m_ui.pushStart, SIGNAL(clicked()), this, SLOT(startsocket()));
+    connect(m_ui.pushStop, SIGNAL(clicked()), this, SLOT(closeSocket()));
+    connect(m_ui.pushStart, SIGNAL(clicked()), this, SLOT(startSocket()));
 }
 
 UdpListener::~UdpListener()
