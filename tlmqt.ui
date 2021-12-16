@@ -2,12 +2,15 @@
 <ui version="4.0">
  <class>tlmqtClass</class>
  <widget class="QMainWindow" name="tlmqtClass">
+  <property name="enabled">
+   <bool>true</bool>
+  </property>
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>2900</width>
-    <height>1500</height>
+    <width>1750</width>
+    <height>750</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -19,8 +22,8 @@
      <rect>
       <x>40</x>
       <y>40</y>
-      <width>2331</width>
-      <height>1361</height>
+      <width>1165</width>
+      <height>650</height>
      </rect>
     </property>
     <property name="cursor" stdset="0">
@@ -42,8 +45,8 @@
    <widget class="QCheckBox" name="checkBox">
     <property name="geometry">
      <rect>
-      <x>2390</x>
-      <y>1370</y>
+      <x>1230</x>
+      <y>660</y>
       <width>321</width>
       <height>31</height>
      </rect>
@@ -76,63 +79,63 @@
     <property name="alignment">
      <set>Qt::AlignCenter</set>
     </property>
-    <widget class="QWidget" name="verticalLayoutWidget">
-     <property name="geometry">
-      <rect>
-       <x>10</x>
-       <y>30</y>
-       <width>351</width>
-       <height>301</height>
-      </rect>
+   </widget>
+   <widget class="QWidget" name="verticalLayoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>1310</x>
+      <y>50</y>
+      <width>351</width>
+      <height>301</height>
+     </rect>
+    </property>
+    <layout class="QVBoxLayout" name="verticalLayout">
+     <property name="leftMargin">
+      <number>15</number>
      </property>
-     <layout class="QVBoxLayout" name="verticalLayout">
-      <property name="leftMargin">
-       <number>15</number>
-      </property>
-      <property name="rightMargin">
-       <number>15</number>
-      </property>
-      <item>
-       <widget class="QLineEdit" name="lineEdit">
-        <property name="layoutDirection">
-         <enum>Qt::LeftToRight</enum>
-        </property>
-        <property name="text">
-         <string>1440</string>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignCenter</set>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QPushButton" name="pushStart">
-        <property name="toolTip">
-         <string>Ctrl+C</string>
-        </property>
-        <property name="text">
-         <string>Connect</string>
-        </property>
-        <property name="shortcut">
-         <string>Ctrl+C</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QPushButton" name="pushStop">
-        <property name="toolTip">
-         <string>Ctrl+D</string>
-        </property>
-        <property name="text">
-         <string>Disconnect</string>
-        </property>
-        <property name="shortcut">
-         <string>Ctrl+D</string>
-        </property>
-       </widget>
-      </item>
-     </layout>
-    </widget>
+     <property name="rightMargin">
+      <number>15</number>
+     </property>
+     <item>
+      <widget class="QLineEdit" name="lineEdit">
+       <property name="layoutDirection">
+        <enum>Qt::LeftToRight</enum>
+       </property>
+       <property name="text">
+        <string>1440</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pushStart">
+       <property name="toolTip">
+        <string>Ctrl+C</string>
+       </property>
+       <property name="text">
+        <string>Connect</string>
+       </property>
+       <property name="shortcut">
+        <string>Ctrl+C</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pushStop">
+       <property name="toolTip">
+        <string>Ctrl+D</string>
+       </property>
+       <property name="text">
+        <string>Disconnect</string>
+       </property>
+       <property name="shortcut">
+        <string>Ctrl+D</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menuBar">
@@ -140,8 +143,8 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>2900</width>
-     <height>22</height>
+     <width>1750</width>
+     <height>21</height>
     </rect>
    </property>
   </widget>
