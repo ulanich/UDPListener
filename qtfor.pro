@@ -14,3 +14,6 @@ UI_DIR += .
 RCC_DIR += .
 include(qtfor.pri)
 QT       += network
+QT       += gui
+QT       += core
+QT       += widgets

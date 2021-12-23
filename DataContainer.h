@@ -6,9 +6,13 @@
 class Output
 {
 public:
-    Output(int in_id = 0, QString& in_tlm = QString(),
-        QString& in_type = QString(), int in_len = 0,
-        QString& in_crc = QString(), int in_packVer = 0,
+    Output(int in_id, QString in_tlm,
+        QString in_type, int in_len,
+        QString in_crc, int in_packVer = 0,
+        int in_appIdent = 0);
+    Output(int in_id = 0, QString&& in_tlm = QString(),
+        QString&& in_type = QString(), int in_len =0,
+        QString&& in_crc = QString(), int in_packVer = 0,
         int in_appIdent = 0);
 
     QString    getByte() const;

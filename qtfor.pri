@@ -7,8 +7,16 @@
 message("You are running qmake on a generated .pro file. This may not work!")
 
 
-HEADERS += ./UdpListener.h
+HEADERS += ./UdpListener.h \
+           ./DataContainer.h \
+           ./InfoStructs.h \
+           ./crc.h \
+           ./TableModell.h
+           ./x64/Debug/uic/ui_tlmqt.h
 SOURCES += ./UdpListener.cpp \
-    ./main.cpp
+    ./main.cpp \
+    ./DataContainer.cpp\
+    ./crc.cpp \
+    ./TableModell.cpp
 FORMS += ./tlmqt.ui
 RESOURCES += tlmqt.qrc

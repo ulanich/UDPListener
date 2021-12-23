@@ -1,4 +1,5 @@
 #include "crc.h"
+#include <iostream>
 
 uint16_t crc_calc(const uint8_t *data, size_t len)
 {
@@ -10,3 +11,4 @@ uint16_t crc_calc(const uint8_t *data, size_t len)
 
 	return crc_final(crc);
 }
+

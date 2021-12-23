@@ -1,7 +1,7 @@
 #pragma once
 
 #include <QtWidgets/QMainWindow>
-#include "ui_tlmqt.h"
+#include "x64/Debug/uic/ui_tlmqt.h"
 #include "TableModell.h"
 //#include "DataContainer.h"
 #include <QUdpSocket>

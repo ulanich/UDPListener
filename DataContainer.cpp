@@ -67,14 +67,24 @@ void TLMPacket::allClear()
     m_textMessage.clear();
 }
 
-Output::Output(int in_id, QString& in_tlm, QString& in_type,
-               int in_len, QString& in_crc, int in_packVer,
+Output::Output(int in_id, QString in_tlm, QString in_type,
+               int in_len, QString in_crc, int in_packVer,
                int in_appIdent) :
-        m_idPackage(in_id), m_info(in_tlm), m_type(in_type),
+        m_info(in_tlm), m_idPackage(in_id), m_type(in_type),
         m_packLen(in_len), m_crc(in_crc), m_packVer(in_packVer),
         m_appIdent(in_appIdent)
 {
 }
+
+Output::Output(int in_id, QString&& in_tlm, QString&& in_type,
+               int in_len, QString&& in_crc, int in_packVer,
+               int in_appIdent) :
+        m_info(in_tlm), m_idPackage(in_id), m_type(in_type),
+        m_packLen(in_len), m_crc(in_crc), m_packVer(in_packVer),
+        m_appIdent(in_appIdent)
+{
+}
+
 
 QString Output::getByte() const
 {

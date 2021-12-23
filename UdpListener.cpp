@@ -37,8 +37,6 @@ void UdpListener::startSocket()
     m_ui.pushStop->setEnabled(true);
     m_ui.lineEdit->setEnabled(false);
 
-    QString port = m_ui.lineEdit->text().toInt();
-
     socket = new QUdpSocket();
     socket->bind(QHostAddress::LocalHost, m_ui.lineEdit->text().toInt());
 
